@@ -1,0 +1,1314 @@
+Program.Sub.ScreenSU.Start
+gui.Form_IssueMat..create
+gui.Form_IssueMat..caption("Issue Material by Part Number (INA_ISSUE_MATERIAL)")
+gui.Form_IssueMat..size(18480,8070)
+gui.Form_IssueMat..minx(0)
+gui.Form_IssueMat..miny(0)
+gui.Form_IssueMat..position(2702,2758)
+gui.Form_IssueMat..event(unload,form_issuemat_unload)
+gui.Form_IssueMat..alwaysontop(False)
+gui.Form_IssueMat..fontname("Arial")
+gui.Form_IssueMat..fontsize(10)
+gui.Form_IssueMat..forecolor(0)
+gui.Form_IssueMat..fontstyle(False,False,False,False,)
+gui.Form_IssueMat..BackColor(-2147483633)
+gui.Form_IssueMat..controlbox(True)
+gui.Form_IssueMat..maxbutton(True)
+gui.Form_IssueMat..minbutton(True)
+gui.Form_IssueMat..mousepointer(0)
+gui.Form_IssueMat..moveable(True)
+gui.Form_IssueMat..sizeable(False)
+gui.Form_IssueMat..ShowInTaskBar(True)
+gui.Form_IssueMat..titlebar(True)
+gui.Form_IssueMat.frame_WorkOrder.create(frame)
+gui.Form_IssueMat.frame_WorkOrder.caption("Work Order")
+gui.Form_IssueMat.frame_WorkOrder.size(9090,3375)
+gui.Form_IssueMat.frame_WorkOrder.position(100,735)
+gui.Form_IssueMat.frame_WorkOrder.visible(True)
+gui.Form_IssueMat.frame_WorkOrder.fontname("Arial")
+gui.Form_IssueMat.frame_WorkOrder.fontsize(10)
+gui.Form_IssueMat.frame_LotBin.create(frame)
+gui.Form_IssueMat.frame_LotBin.caption("Lot/ Bin ")
+gui.Form_IssueMat.frame_LotBin.size(8835,3375)
+gui.Form_IssueMat.frame_LotBin.position(9280,735)
+gui.Form_IssueMat.frame_LotBin.visible(True)
+gui.Form_IssueMat.frame_LotBin.fontname("Arial")
+gui.Form_IssueMat.frame_LotBin.fontsize(10)
+gui.Form_IssueMat.frame_Selected.create(frame)
+gui.Form_IssueMat.frame_Selected.caption("Selected Material to be Issued")
+gui.Form_IssueMat.frame_Selected.size(11955,3075)
+gui.Form_IssueMat.frame_Selected.position(1675,4265)
+gui.Form_IssueMat.frame_Selected.visible(True)
+gui.Form_IssueMat.frame_Selected.fontname("Arial")
+gui.Form_IssueMat.frame_Selected.fontsize(10)
+gui.Form_IssueMat.frame_LotBinSelection.create(frame)
+gui.Form_IssueMat.frame_LotBinSelection.caption("Lot/ Bin Selection")
+gui.Form_IssueMat.frame_LotBinSelection.size(4320,1185)
+gui.Form_IssueMat.frame_LotBinSelection.position(13795,4255)
+gui.Form_IssueMat.frame_LotBinSelection.visible(True)
+gui.Form_IssueMat.frame_LotBinSelection.fontname("Arial")
+gui.Form_IssueMat.frame_LotBinSelection.fontsize(10)
+gui.Form_IssueMat.frame_TotalIssue.create(frame)
+gui.Form_IssueMat.frame_TotalIssue.caption("Total Issued Quantity")
+gui.Form_IssueMat.frame_TotalIssue.size(4320,1725)
+gui.Form_IssueMat.frame_TotalIssue.position(13805,5610)
+gui.Form_IssueMat.frame_TotalIssue.visible(True)
+gui.Form_IssueMat.frame_TotalIssue.fontname("Arial")
+gui.Form_IssueMat.frame_TotalIssue.fontsize(10)
+gui.Form_IssueMat.lbl_PartNum.create(label,"Part Number",True,1185,255,1,110,50,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_PartNum.defaultvalue("")
+gui.Form_IssueMat.lbl_PartNum.controlgroup(0)
+gui.Form_IssueMat.txt_PartNum.create(textbox,"",True,2445,300,0,90,265,True,0,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_PartNum.event(lostfocus,txt_partnum_keypressenter)
+gui.Form_IssueMat.txt_PartNum.defaultvalue("")
+gui.Form_IssueMat.txt_PartNum.controlgroup(0)
+gui.Form_IssueMat.cmd_BrowsePart.create(button)
+gui.Form_IssueMat.cmd_BrowsePart.caption("^")
+gui.Form_IssueMat.cmd_BrowsePart.visible(True)
+gui.Form_IssueMat.cmd_BrowsePart.size(435,405)
+gui.Form_IssueMat.cmd_BrowsePart.zorder(0)
+gui.Form_IssueMat.cmd_BrowsePart.position(4010,175)
+gui.Form_IssueMat.cmd_BrowsePart.enabled(True)
+gui.Form_IssueMat.cmd_BrowsePart.fontname("Arial")
+gui.Form_IssueMat.cmd_BrowsePart.fontsize(10)
+gui.Form_IssueMat.cmd_BrowsePart.event(click,cmd_browsepart_click)
+gui.Form_IssueMat.cmd_BrowsePart.defaultvalue("")
+gui.Form_IssueMat.cmd_BrowsePart.controlgroup(0)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.create(gsflexgrid)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.FixedRows(0)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.FixedCols(0)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.visible(True)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.size(8850,2925)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.zorder(0)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.position(100,300)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.enabled(True)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.parent("frame_workorder")
+gui.Form_IssueMat.gsflexgrid_WorkOrder.event(posttextmatrix,gsflexgrid_workorder_posttextmatrix)
+gui.Form_IssueMat.gsflexgrid_WorkOrder.event(checkclick,gsflexgrid_workorder_checkclick)
+gui.Form_IssueMat.gsflexgrid_LotBin.create(gsflexgrid)
+gui.Form_IssueMat.gsflexgrid_LotBin.FixedRows(0)
+gui.Form_IssueMat.gsflexgrid_LotBin.FixedCols(0)
+gui.Form_IssueMat.gsflexgrid_LotBin.visible(True)
+gui.Form_IssueMat.gsflexgrid_LotBin.size(8610,2910)
+gui.Form_IssueMat.gsflexgrid_LotBin.zorder(0)
+gui.Form_IssueMat.gsflexgrid_LotBin.position(105,305)
+gui.Form_IssueMat.gsflexgrid_LotBin.enabled(True)
+gui.Form_IssueMat.gsflexgrid_LotBin.parent("frame_lotbin")
+gui.Form_IssueMat.gsflexgrid_LotBin.event(checkclick,gsflexgrid_lotbin_checkclick)
+gui.Form_IssueMat.lbl_OnHand.create(label,"Total On Hand",True,1335,240,1,230,330,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_OnHand.parent("frame_totalissue")
+gui.Form_IssueMat.lbl_OnHand.defaultvalue("")
+gui.Form_IssueMat.lbl_OnHand.controlgroup(0)
+gui.Form_IssueMat.txt_OnHand.create(textbox,"",True,1680,300,0,1780,320,True,1,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_OnHand.parent("frame_totalissue")
+gui.Form_IssueMat.txt_OnHand.defaultvalue("")
+gui.Form_IssueMat.txt_OnHand.controlgroup(0)
+gui.Form_IssueMat.txt_UM.create(textbox,"",True,450,300,0,3530,315,True,2,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_UM.parent("frame_totalissue")
+gui.Form_IssueMat.txt_UM.defaultvalue("")
+gui.Form_IssueMat.txt_UM.controlgroup(0)
+gui.Form_IssueMat.gsflexgrid_Selected.create(gsflexgrid)
+gui.Form_IssueMat.gsflexgrid_Selected.FixedRows(0)
+gui.Form_IssueMat.gsflexgrid_Selected.FixedCols(0)
+gui.Form_IssueMat.gsflexgrid_Selected.visible(True)
+gui.Form_IssueMat.gsflexgrid_Selected.size(11715,2625)
+gui.Form_IssueMat.gsflexgrid_Selected.zorder(0)
+gui.Form_IssueMat.gsflexgrid_Selected.position(100,305)
+gui.Form_IssueMat.gsflexgrid_Selected.enabled(True)
+gui.Form_IssueMat.gsflexgrid_Selected.parent("frame_selected")
+gui.Form_IssueMat.gsflexgrid_Selected.event(commandclick,gsflexgrid_selected_commandclick)
+gui.Form_IssueMat.lbl_Rev.create(label,"Rev",True,390,255,1,2680,50,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_Rev.defaultvalue("")
+gui.Form_IssueMat.lbl_Rev.controlgroup(0)
+gui.Form_IssueMat.txt_Rev.create(textbox,"",True,630,300,0,2660,265,True,2,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_Rev.event(lostfocus,txt_partnum_keypressenter)
+gui.Form_IssueMat.txt_Rev.defaultvalue("")
+gui.Form_IssueMat.txt_Rev.controlgroup(0)
+gui.Form_IssueMat.lbl_Loc.create(label,"Loc",True,360,255,1,3450,50,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_Loc.defaultvalue("")
+gui.Form_IssueMat.lbl_Loc.controlgroup(0)
+gui.Form_IssueMat.txt_Loc.create(textbox,"",True,450,300,0,3415,265,True,2,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_Loc.defaultvalue("")
+gui.Form_IssueMat.txt_Loc.controlgroup(0)
+gui.Form_IssueMat.lbl_Issued.create(label,"Total Issued",True,1125,255,1,230,685,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_Issued.parent("frame_totalissue")
+gui.Form_IssueMat.lbl_Issued.defaultvalue("")
+gui.Form_IssueMat.lbl_Issued.controlgroup(0)
+gui.Form_IssueMat.txt_Issued.create(textbox,"",True,1680,300,0,1790,690,True,1,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_Issued.parent("frame_totalissue")
+gui.Form_IssueMat.txt_Issued.numericonly(1)
+gui.Form_IssueMat.txt_Issued.event(keypressenter,txt_issued_keypressenter)
+gui.Form_IssueMat.txt_Issued.defaultvalue("")
+gui.Form_IssueMat.txt_Issued.controlgroup(0)
+gui.Form_IssueMat.lbl_TotalWO.create(label,"Total WO",True,1005,255,1,200,335,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_TotalWO.parent("frame_lotbinselection")
+gui.Form_IssueMat.lbl_TotalWO.defaultvalue("")
+gui.Form_IssueMat.lbl_TotalWO.controlgroup(0)
+gui.Form_IssueMat.txt_TotalWO.create(textbox,"",True,1695,300,0,1415,305,True,1,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_TotalWO.parent("frame_lotbinselection")
+gui.Form_IssueMat.txt_TotalWO.numericonly(1)
+gui.Form_IssueMat.txt_TotalWO.defaultvalue("")
+gui.Form_IssueMat.txt_TotalWO.controlgroup(0)
+gui.Form_IssueMat.lbl_TotalLotBin.create(label,"Total Lot/ Bin",True,1245,255,1,200,725,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_TotalLotBin.parent("frame_lotbinselection")
+gui.Form_IssueMat.lbl_TotalLotBin.defaultvalue("")
+gui.Form_IssueMat.lbl_TotalLotBin.controlgroup(0)
+gui.Form_IssueMat.txt_TotalLotBin.create(textbox,"",True,1695,300,0,1415,690,True,1,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_TotalLotBin.parent("frame_lotbinselection")
+gui.Form_IssueMat.txt_TotalLotBin.numericonly(1)
+gui.Form_IssueMat.txt_TotalLotBin.defaultvalue("")
+gui.Form_IssueMat.txt_TotalLotBin.controlgroup(0)
+gui.Form_IssueMat.cmd_LotBinSelect.create(button)
+gui.Form_IssueMat.cmd_LotBinSelect.caption("Select")
+gui.Form_IssueMat.cmd_LotBinSelect.visible(True)
+gui.Form_IssueMat.cmd_LotBinSelect.size(930,375)
+gui.Form_IssueMat.cmd_LotBinSelect.zorder(0)
+gui.Form_IssueMat.cmd_LotBinSelect.position(3255,440)
+gui.Form_IssueMat.cmd_LotBinSelect.enabled(True)
+gui.Form_IssueMat.cmd_LotBinSelect.parent("frame_lotbinselection")
+gui.Form_IssueMat.cmd_LotBinSelect.fontname("Arial")
+gui.Form_IssueMat.cmd_LotBinSelect.fontsize(10)
+gui.Form_IssueMat.cmd_LotBinSelect.event(click,cmd_lotbinselect_click)
+gui.Form_IssueMat.cmd_LotBinSelect.defaultvalue("")
+gui.Form_IssueMat.cmd_LotBinSelect.controlgroup(0)
+gui.Form_IssueMat.lbl_PartDesc.create(label,"Part Description",True,1935,255,1,4935,45,True,0,Arial,10,-2147483633,0)
+gui.Form_IssueMat.lbl_PartDesc.defaultvalue("")
+gui.Form_IssueMat.lbl_PartDesc.controlgroup(0)
+gui.Form_IssueMat.txt_PartDesc.create(textbox,"",True,4275,300,0,4900,275,True,0,Arial,10,-2147483643,1)
+gui.Form_IssueMat.txt_PartDesc.defaultvalue("")
+gui.Form_IssueMat.txt_PartDesc.controlgroup(0)
+gui.Form_IssueMat.cmd_Issue.create(button)
+gui.Form_IssueMat.cmd_Issue.caption("Issue")
+gui.Form_IssueMat.cmd_Issue.visible(True)
+gui.Form_IssueMat.cmd_Issue.size(900,450)
+gui.Form_IssueMat.cmd_Issue.zorder(0)
+gui.Form_IssueMat.cmd_Issue.position(3240,1100)
+gui.Form_IssueMat.cmd_Issue.enabled(True)
+gui.Form_IssueMat.cmd_Issue.parent("frame_totalissue")
+gui.Form_IssueMat.cmd_Issue.fontname("Arial")
+gui.Form_IssueMat.cmd_Issue.fontsize(10)
+gui.Form_IssueMat.cmd_Issue.event(click,cmd_issue_click)
+gui.Form_IssueMat.cmd_Issue.defaultvalue("")
+gui.Form_IssueMat.cmd_Issue.controlgroup(0)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uWO.Define("WO",String,JOB)
+Variable.UDT.uWO.Define("SUFFIX",String,SUFFIX)
+Variable.UDT.uWO.Define("SEQ",String,SEQ)
+Variable.UDT.uWO.Define("DUE",Date,DATE_DUE)
+Variable.UDT.uWO.Define("ACTUAL",Float,HOURS_ACTUAL)
+Variable.UDT.uWO.Define("ESTIMATE",Float,HOURS_ESTIMATED)
+Variable.UDT.uWO.Define("QUANTITY",Float)
+Variable.UDT.uWO.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.uWO.Define("ROUTER",String,ROUTER)
+Variable.uGlobal.uWO.Declare("uWO")
+Variable.UDT.uLotBin.Define("LOT",String,LOT)
+Variable.UDT.uLotBin.Define("BIN",String,BIN)
+Variable.UDT.uLotBin.Define("HEAT",String,HEAT)
+Variable.UDT.uLotBin.Define("SERIAL",String,SERIAL_NUMBER)
+Variable.UDT.uLotBin.Define("QUANTITY",Float,QUANTITY)
+Variable.uGlobal.uLotBin.Declare("uLotBin")
+Variable.UDT.uSelected.Define("WO",String)
+Variable.UDT.uSelected.Define("SUFFIX",String)
+Variable.UDT.uSelected.Define("SEQ",String)
+Variable.UDT.uSelected.Define("LOT",String)
+Variable.UDT.uSelected.Define("BIN",String)
+Variable.UDT.uSelected.Define("HEAT",String)
+Variable.UDT.uSelected.Define("QUANTITY",Float)
+Variable.UDT.uSelected.Define("SERIAL",String)
+Variable.UDT.uSelected.Define("WO_ROW",Long)
+Variable.UDT.uSelected.Define("LOT_ROW",Long)
+Variable.UDT.uSelected.Define("QTY_ORI",Float)
+Variable.uGlobal.uSelected.Declare("uSelected")
+Variable.Global.iGsflexgrid_LotBin_click.Declare(Long,0)
+Variable.Global.iGsflexgrid_WorkOrder_click.Declare(Long,0)
+Variable.Global.iGsflexgrid_WorkOrder_uRow.Declare(Long,0)
+Variable.Global.fIssueQty.Declare(Float,0)
+Variable.Global.bUseLotBin.Declare(Boolean,False)
+Variable.Global.iSelectedRows.Declare(Long,0)
+Variable.Global.fTotalWO.Declare(Float,0)
+Variable.Global.fTotalLotBin.Declare(Float,0)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sIconPath.Declare(String)
+
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.String.Concat(V.Caller.GlobalDir,"\SP2\GLOBAL16.ico",V.Local.sIconPath)
+
+Gui.Form_IssueMat..Icon(V.Local.sIconPath)
+
+Gui.Form_IssueMat.txt_PartNum.Locked(0)
+Gui.Form_IssueMat.txt_Rev.Locked(0)
+Gui.Form_IssueMat.txt_Loc.Locked(1)
+Gui.Form_IssueMat.txt_OnHand.Locked(1)
+Gui.Form_IssueMat.txt_Issued.Locked(1)
+Gui.Form_IssueMat.txt_UM.Locked(1)
+Gui.Form_IssueMat.txt_TotalWO.Locked(1)
+Gui.Form_IssueMat.txt_TotalLotBin.Locked(1)
+
+F.Intrinsic.Control.CallSub(Gsflexgrid_workorder_style)
+F.Intrinsic.Control.CallSub(Gsflexgrid_lotbin_style)
+F.Intrinsic.Control.CallSub(Gsflexgrid_selected_style)
+
+Gui.Form_IssueMat..Show
+
+Program.Sub.Main.End
+
+program.sub.gsflexgrid_workorder_checkclick.start
+V.Local.bCheck.Declare(Boolean)
+V.Local.fWO_Qty.Declare(Float)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(6,V.Args.Key,V.Local.bCheck)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(5,V.Args.Key,V.Local.fWO_Qty)
+F.Intrinsic.Math.Sub(V.Args.Key,1,V.Global.iGsflexgrid_WorkOrder_uRow)
+F.Intrinsic.Control.If(V.Local.bCheck,=,True)
+	F.Intrinsic.Math.Add(V.Global.iGsflexgrid_WorkOrder_click,1,V.Global.iGsflexgrid_WorkOrder_click)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Math.Sub(V.Global.iGsflexgrid_WorkOrder_click,1,V.Global.iGsflexgrid_WorkOrder_click)
+	F.Intrinsic.Control.If(V.Local.fWO_Qty,<>,V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Args.Key,V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY,=,0)
+	F.Intrinsic.UI.Msgbox("The selected work order does not have any issue material requirement","NOTIFICATION")
+	F.Intrinsic.Control.If(V.Global.iGsflexgrid_WorkOrder_click,>,1)
+		F.Intrinsic.Math.Sub(V.Global.iGsflexgrid_WorkOrder_click,1,V.Global.iGsflexgrid_WorkOrder_click)
+	F.Intrinsic.Control.Else
+		V.Global.iGsflexgrid_WorkOrder_click.Set(0)
+	F.Intrinsic.Control.EndIf
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(6,V.Args.Key,False)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+		V.Local.sTotalWO.Declare(String)
+		F.Intrinsic.Control.If(V.Local.bCheck,=,True)
+			F.Intrinsic.Math.Add(V.Global.fTotalWO,V.Local.fWO_Qty,V.Global.fTotalWO)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Math.Sub(V.Global.fTotalWO,V.Local.fWO_Qty,V.Global.fTotalWO)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Format(V.Global.fTotalWO,"#,0.0000",V.Local.sTotalWO)
+		Gui.Form_IssueMat.txt_TotalWO.Text(V.Local.sTotalWO)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Global.iGsflexgrid_WorkOrder_click,=,1)
+			F.Intrinsic.Control.CallSub(Load_gsflexgrid_selected)
+		F.Intrinsic.Control.ElseIf(V.Global.iGsflexgrid_WorkOrder_click,>,1)
+			F.Intrinsic.UI.Msgbox("Only 1 checkbox can be clicked","NOTIFICATION")
+			V.Global.iGsflexgrid_WorkOrder_click.Set(1)
+			Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(6,V.Args.Key,False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+program.sub.gsflexgrid_workorder_checkclick.End
+
+program.sub.cmd_browsepart_click.start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+Variable.Local.sRet.Declare(String)
+Variable.Local.sTemp.Declare(String)
+Variable.Local.sTitles.Declare(String)
+Variable.Local.iWidths.Declare(Long)
+
+V.Local.iLength.Declare(Long)
+V.Local.sPart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sLoc.Declare(String)
+
+Function.Intrinsic.String.Split("Part Number*!*Loc*!*WO*!*Suffix*!*Description*!*Alt. Description 1*!*Alt.Description 2*!*UM","*!*",Variable.local.sTitles)
+Function.Intrinsic.String.Split("1500*!*500*!*800*!*600*!*3000*!*3000*!*3000*!*500","*!*",Variable.local.iWidths)
+
+F.Intrinsic.Debug.SetLA("Generating browser")
+F.Intrinsic.UI.Browser("Select Part Number","conx","SELECT JO.PART, IV.LOCATION, JO.JOB, JO.SUFFIX, JO.DESCRIPTION, IV.DESCRIPTION_2, IV.DESCRIPTION_3, JO.UM FROM V_JOB_OPERATIONS JO INNER JOIN V_INVENTORY_MST2 IV ON JO.PART = IV.PART WHERE JO.LMO = 'M' AND JO.FLAG_CLOSED <> 'Y' AND JO.HOURS_ACTUAL < JO.HOURS_ESTIMATED AND JO.SEQ < 990000 ORDER BY JO.PART,JO.JOB,JO.SUFFIX",V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+Function.Intrinsic.Control.If(Variable.Local.sRet,"=","***CANCEL***")
+	F.Intrinsic.Debug.SetLA("Nothing is selected")
+	Function.Intrinsic.UI.Msgbox("No part is selected","WARNING")
+Function.Intrinsic.Control.Else
+	Function.Intrinsic.String.Split(Variable.Local.sRet,"*!*",Variable.Local.sRet)
+	F.Intrinsic.Debug.SetLA("Part No. : ",V.Local.sRet(0),", Loc: ",V.Local.sRet(1)," Description: ",V.Local.sRet(3))
+	F.Intrinsic.String.Len(V.Local.sRet(0),V.Local.iLength)
+	F.Intrinsic.Control.If(V.Local.iLength,>,17)
+		F.Intrinsic.Debug.SetLA("Part number is longer than 17 chars")
+		F.Intrinsic.String.Left(V.Local.sRet(0),17,V.Local.sPart)
+		F.Intrinsic.String.Mid(V.Local.sRet(0),17,3,V.Local.sRev)
+		Gui.Form_IssueMat.txt_PartNum.Text(V.Local.sPart)
+		Gui.Form_IssueMat.txt_Rev.Text(V.Local.sRev)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Debug.SetLA("Part number is less 17 chars")
+		Gui.Form_IssueMat.txt_PartNum.Text(V.Local.sRet(0))
+	F.Intrinsic.Control.Endif
+	F.Intrinsic.Control.If(V.Local.sRet(1).Trim,=,"00")
+		V.Local.sLoc.Set("")
+	F.Intrinsic.Control.Else
+		V.Local.sLoc.Set(V.Local.sRet(1).Trim)
+	F.Intrinsic.Control.EndIf
+	Gui.Form_IssueMat.txt_Loc.Text(V.Local.sLoc)
+	Gui.Form_IssueMat.txt_UM.Text(V.Local.sRet(7))
+	Gui.Form_IssueMat.txt_PartDesc.Text(V.Local.sRet(4))
+	V.Local.sPart.Set(V.Local.sRet(0))
+	F.Intrinsic.Control.CallSub(Load_gsflexgrid_workorder_lotbin,"sPart",V.Local.sPart,"sLoc",V.Local.sLoc)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: INA_ISSUE_MATERIAL.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.String.Concat(V.Local.sError,V.Ambient.NewLine,"Last Action: ",V.Ambient.NewLine,V.Ambient.LastAction,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmd_browsepart_click.End
+
+Program.Sub.gsflexgrid_WorkOrder_style.Start
+V.Local.sTitles.Declare(String)
+V.Local.sTitles.Set("WO*!*Suffix*!*Description*!*Seq*!*Due Date*!*Quantity*!*")
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.Cols(7)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.Rows(2)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.FixedRows(1)
+
+V.Local.i1.Declare(Long)
+F.Intrinsic.Control.For(V.Local.i1,0,V.Local.sTitles.UBound,1)
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(V.Local.i1,0,V.Local.sTitles(V.Local.i1))
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(1,V.Local.i1,"Type","Locked",True)
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(1,V.Local.i1,"Fontstyle","Bold",True)
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(1,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.If(V.Local.i1,=,6)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(2,V.Local.i1,"Type","Checkbox",False)
+	F.Intrinsic.Control.ElseIf(V.Local.i1,=,5)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(2,V.Local.i1,"Type","Locked",False)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(2,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.Else
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(2,V.Local.i1,"Type","Locked",True)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(2,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.i1)
+
+'Set Colwidth
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ColWidth(0,900)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ColWidth(1,700)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ColWidth(2,3000)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ColWidth(3,900)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ColWidth(4,1000)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ColWidth(5,1500)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ColWidth(6,500)
+
+'Set masking
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(2,5,"Format","Mask","#,0.0000")
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.BuildStyle(2,5,"Format","Alignment",6)
+
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.ApplyStyle(0,1)
+
+Program.Sub.gsflexgrid_WorkOrder_style.End
+
+Program.Sub.gsflexgrid_LotBin_style.Start
+V.Local.sTitles.Declare(String)
+V.Local.sTitles.Set("Lot*!*Bin*!*Heat*!*Serial*!*Quantity*!*")
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+
+Gui.Form_IssueMat.gsflexgrid_LotBin.Cols(6)
+Gui.Form_IssueMat.gsflexgrid_LotBin.Rows(2)
+Gui.Form_IssueMat.gsflexgrid_LotBin.FixedRows(1)
+
+V.Local.i1.Declare(Long)
+F.Intrinsic.Control.For(V.Local.i1,0,V.Local.sTitles.UBound,1)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.TextMatrix(V.Local.i1,0,V.Local.sTitles(V.Local.i1))
+	Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(1,V.Local.i1,"Type","Locked",True)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(1,V.Local.i1,"Fontstyle","Bold",True)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(1,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.If(V.Local.i1,=,5)
+		Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(2,V.Local.i1,"Type","Checkbox",False)
+	F.Intrinsic.Control.Else
+		Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(2,V.Local.i1,"Type","Locked",True)
+		Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(2,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.i1)
+
+'Set Colwidth
+Gui.Form_IssueMat.gsflexgrid_LotBin.ColWidth(0,1500)
+Gui.Form_IssueMat.gsflexgrid_LotBin.ColWidth(1,800)
+Gui.Form_IssueMat.gsflexgrid_LotBin.ColWidth(2,1200)
+Gui.Form_IssueMat.gsflexgrid_LotBin.ColWidth(3,3000)
+Gui.Form_IssueMat.gsflexgrid_LotBin.ColWidth(4,1500)
+Gui.Form_IssueMat.gsflexgrid_LotBin.ColWidth(5,500)
+
+'Set masking
+Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(2,4,"Format","Mask","#,0.0000")
+Gui.Form_IssueMat.gsflexgrid_LotBin.BuildStyle(2,4,"Format","Alignment",6)
+
+Gui.Form_IssueMat.gsflexgrid_LotBin.ApplyStyle(0,1)
+
+Program.Sub.gsflexgrid_LotBin_style.End
+
+Program.Sub.gsflexgrid_Selected_style.Start
+V.Local.sTitles.Declare(String)
+V.Local.sTitles.Set("WO*!*Suffix*!*Seq*!*Lot*!*Bin*!*Heat*!*Serial*!*Quantity*!*")
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+
+Gui.Form_IssueMat.gsflexgrid_Selected.Cols(9)
+Gui.Form_IssueMat.gsflexgrid_Selected.Rows(2)
+Gui.Form_IssueMat.gsflexgrid_Selected.FixedRows(1)
+
+V.Local.i1.Declare(Long)
+F.Intrinsic.Control.For(V.Local.i1,0,V.Local.sTitles.UBound,1)
+	Gui.Form_IssueMat.gsflexgrid_Selected.TextMatrix(V.Local.i1,0,V.Local.sTitles(V.Local.i1))
+	Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(1,V.Local.i1,"Type","Locked",True)
+	Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(1,V.Local.i1,"Fontstyle","Bold",True)
+	Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(1,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.If(V.Local.i1,=,7)
+		Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(2,V.Local.i1,"Type","Locked",True)
+		Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(2,V.Local.i1,"Format","Alignment",6)
+		Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(2,V.Local.i1,"Format","Mask","#,0.0000")
+	F.Intrinsic.Control.ElseIf(V.Local.i1,=,8)
+		Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(2,V.Local.i1,"Type","Command","Cancel")
+		Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(2,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.Else
+		Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(2,V.Local.i1,"Type","Locked",True)
+		Gui.Form_IssueMat.gsflexgrid_Selected.BuildStyle(2,V.Local.i1,"Format","Alignment",4)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.i1)
+
+'Set Colwidth
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(0,900)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(1,700)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(2,900)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(3,1500)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(4,800)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(5,1200)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(6,3000)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(7,1500)
+Gui.Form_IssueMat.gsflexgrid_Selected.ColWidth(8,1000)
+
+Gui.Form_IssueMat.gsflexgrid_Selected.ApplyStyle(0,1)
+
+
+Program.Sub.gsflexgrid_Selected_style.End
+
+Program.Sub.load_gsflexgrid_WorkOrder_LotBin.Start
+F.Intrinsic.Variable.UDTFlagAll(V.uGlobal.uSelected)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uSelected)
+Gui.Form_IssueMat.gsflexgrid_Selected.LoadFromUDT("V.uGlobal.uSelected","WO::0*!*SUFFIX::1*!*SEQ::2*!*LOT::3*!*BIN::4*!*HEAT::5*!*SERIAL::6*!*QUANTITY::7",2)
+V.uGlobal.uSelected.Redim(0,0)
+V.Global.iSelectedRows.Set(0)
+V.Global.fIssueQty.Set(0)
+V.Local.sIssueQty.Declare(String)
+F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+
+V.Local.sQuery.Declare(String)
+F.Intrinsic.String.Concat("SELECT * FROM V_JOB_OPERATIONS WHERE PART = '",V.Args.sPart.Trim,"'",V.Local.sQuery)
+F.Intrinsic.Control.If(V.Args.sLoc.Trim,=,"")
+	F.Intrinsic.String.Concat(V.Local.sQuery," AND FLAG_CLOSED <> 'Y' AND HOURS_ACTUAL < HOURS_ESTIMATED ORDER BY JOB, SUFFIX",V.Local.sQuery)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat(V.Local.sQuery," AND LOCN = '",V.Args.sLoc.Trim,"' AND FLAG_CLOSED <> 'Y' AND HOURS_ACTUAL < HOURS_ESTIMATED ORDER BY JOB, SUFFIX",V.Local.sQuery)
+F.Intrinsic.Control.EndIf
+F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,True)
+	F.Intrinsic.UI.Msgbox("Part number is not found","NOTIFICATION")
+	F.ODBC.conx!rst.Close
+	
+	Gui.Form_IssueMat.txt_PartDesc.Text("")
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uWO)
+	F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+		F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uLotBin)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Variable.UDTFlagAll(V.uGlobal.uSelected)
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uSelected)
+	Gui.Form_IssueMat.gsflexgrid_Selected.LoadFromUDT("V.uGlobal.uSelected","WO::0*!*SUFFIX::1*!*SEQ::2*!*LOT::3*!*BIN::4*!*HEAT::5*!*SERIAL::6*!*QUANTITY::7",2)
+	F.Intrinsic.Variable.UDTFlagAll(V.uGlobal.uWO)
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uWO)
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.LoadFromUDT("V.uGlobal.uWO","WO::0*!*SUFFIX::1*!*DESCRIPTION::2*!*SEQ::3*!*DUE::4*!*QUANTITY::5",2)
+	F.Intrinsic.Variable.UDTFlagAll(V.uGlobal.uLotBin)
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uLotBin)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.LoadFromUDT("V.uGlobal.uLotBin","LOT::0*!*BIN::1*!*HEAT::2*!*SERIAL::3*!*QUANTITY::4",2)
+	V.uGlobal.uSelected.Redim(0,0)
+	V.Global.iSelectedRows.Set(0)
+	V.Global.fIssueQty.Set(0)
+	F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+	Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+	Gui.Form_IssueMat.txt_Issued.Locked(1)
+
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","uGlobal.uWO",False)
+	F.ODBC.conx!rst.Close
+F.Intrinsic.Control.EndIf
+
+V.Local.i1.Declare(Long)
+V.Local.i1.Set(0)
+F.Intrinsic.Control.DoUntil(V.Local.i1,>,V.uGlobal.uWO.UBound)
+	F.Intrinsic.Control.If(V.uGlobal.uWO(V.Local.i1)!ROUTER.Trim,<>,"")
+		F.Intrinsic.String.Concat("SELECT DESCRIPTION_ROUTER FROM V_ROUTER_HEADER WHERE ROUTER = '",V.uGlobal.uWO(V.Local.i1)!ROUTER.Trim,"'",V.Local.sQuery)
+		F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+		V.uGlobal.uWO(V.Local.i1)!DESCRIPTION.Set(V.ODBC.conx!rst.FieldValTrim!DESCRIPTION_ROUTER)
+		F.ODBC.conx!rst.Close
+		F.Intrinsic.Math.Sub(V.uGlobal.uWO(V.Local.i1)!ESTIMATE,V.uGlobal.uWO(V.Local.i1)!ACTUAL,V.uGlobal.uWO(V.Local.i1)!QUANTITY)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.i1)
+F.Intrinsic.Control.Loop
+
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.LoadFromUDT("V.uGlobal.uWO","WO::0*!*SUFFIX::1*!*DESCRIPTION::2*!*SEQ::3*!*DUE::4*!*QUANTITY::5",2)
+
+V.Local.fOnHand.Declare(Float)
+V.Local.sOnHand.Declare(String)
+F.Intrinsic.String.Concat("SELECT DESCRIPTION,QTY_ONHAND,FLAG_LOT FROM V_INVENTORY_MSTR WHERE PART = '",V.Args.sPart.Trim,"' AND LOCATION = '",V.Args.sLoc.Trim,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst_CheckInv",V.Local.sQuery)
+Gui.Form_IssueMat.txt_PartDesc.Text(V.ODBC.conx!rst_CheckInv.FieldValTrim!DESCRIPTION)
+'Check if the part is flagged for lot/bin
+F.Intrinsic.Control.If(V.ODBC.conx!rst_CheckInv.FieldValTrim!FLAG_LOT,<>,"Y")
+	V.Global.bUseLotBin.Set(False)
+	V.Local.fOnHand.Set(V.ODBC.conx!rst_CheckInv.FieldVal!QTY_ONHAND)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.Rows(1)
+	Gui.Form_IssueMat.txt_Issued.Locked(0)
+	Gui.Form_IssueMat.frame_LotBinSelection.Visible(False)
+F.Intrinsic.Control.Else
+	V.Global.bUseLotBin.Set(True)
+	F.Intrinsic.String.Concat("SELECT LOT,BIN,HEAT,SERIAL_NUMBER,QUANTITY FROM V_ITEM_MASTER WHERE PART = '",V.Args.sPart.Trim,"' AND LOCATION = '",V.Args.sLoc.Trim,"' AND QUANTITY > 0",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","uGlobal.uLotBin",False)
+	F.ODBC.conx!rst.Close
+
+	V.Local.i1.Set(0)
+	V.Local.fOnHand.Set(0)
+	F.Intrinsic.Control.DoUntil(V.Local.i1,>,V.uGlobal.uLotBin.UBound)
+		F.Intrinsic.Math.Add(V.Local.fOnHand,V.uGlobal.uLotBin(V.Local.i1)!QUANTITY,V.Local.fOnHand)
+		F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.i1)
+	F.Intrinsic.Control.Loop
+
+	Gui.Form_IssueMat.gsflexgrid_LotBin.Rows(2)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.FixedRows(1)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.LoadFromUDT("V.uGlobal.uLotBin","LOT::0*!*BIN::1*!*HEAT::2*!*SERIAL::3*!*QUANTITY::4",2)
+
+	Gui.Form_IssueMat.txt_Issued.Locked(1)
+	Gui.Form_IssueMat.frame_LotBinSelection.Visible(True)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.Format(V.Local.fOnHand,"#,0.0000",V.Local.sOnHand)
+Gui.Form_IssueMat.txt_OnHand.Text(V.Local.sOnHand)
+
+F.ODBC.conx!rst_CheckInv.Close
+
+F.Intrinsic.Control.ExitSub
+
+Program.Sub.load_gsflexgrid_WorkOrder_LotBin.End
+
+program.sub.gsflexgrid_lotbin_checkclick.start
+V.Local.bCheck.Declare(Boolean)
+Gui.Form_IssueMat.gsflexgrid_LotBin.GetTextMatrix(5,V.Args.Key,V.Local.bCheck)
+V.Local.iGsflexgrid_LotBin_uRow.Declare(Long)
+F.Intrinsic.Math.Sub(V.Args.Key,1,V.Local.iGsflexgrid_LotBin_uRow)
+F.Intrinsic.Control.If(V.Local.bCheck,=,True)
+	F.Intrinsic.Math.Add(V.Global.iGsflexgrid_LotBin_click,1,V.Global.iGsflexgrid_LotBin_click)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Math.Sub(V.Global.iGsflexgrid_LotBin_click,1,V.Global.iGsflexgrid_LotBin_click)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY,=,0)
+	F.Intrinsic.UI.Msgbox("The selected lot/bin does not have anymore on hand quantity","NOTIFICATION")
+	F.Intrinsic.Control.If(V.Global.iGsflexgrid_LotBin_click,>,1)
+		F.Intrinsic.Math.Sub(V.Global.iGsflexgrid_LotBin_click,1,V.Global.iGsflexgrid_LotBin_click)
+	F.Intrinsic.Control.Else
+		V.Global.iGsflexgrid_LotBin_click.Set(0)
+	F.Intrinsic.Control.EndIf
+	Gui.Form_IssueMat.gsflexgrid_LotBin.TextMatrix(5,V.Args.Key,False)
+F.Intrinsic.Control.Else
+	V.Local.fLot_Qty.Declare(Float)
+	V.Local.sTotalLotBin.Declare(String)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.GetTextMatrix(4,V.Args.Key,V.Local.fLot_Qty)
+	F.Intrinsic.Control.If(V.Local.bCheck,=,True)
+		F.Intrinsic.Math.Add(V.Global.fTotalLotBin,V.Local.fLot_Qty,V.Global.fTotalLotBin)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Math.Sub(V.Global.fTotalLotBin,V.Local.fLot_Qty,V.Global.fTotalLotBin)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.String.Format(V.Global.fTotalLotBin,"#,0.0000",V.Local.sTotalLotBin)
+	Gui.Form_IssueMat.txt_TotalLotBin.Text(V.Local.sTotalLotBin)
+F.Intrinsic.Control.EndIf
+
+program.sub.gsflexgrid_lotbin_checkclick.End
+
+Program.Sub.load_gsflexgrid_Selected.Start
+V.Local.fOnHand.Declare(Float)
+V.Local.sOnHand.Declare(String)
+V.Local.fRemaining.Declare(Float)
+V.Local.fWO_Qty.Declare(Float)
+V.Local.sIssueQty.Declare(String)
+V.Local.iGsflexgrid_WorkOrder_Key.Declare(Long)
+F.Intrinsic.Math.Add(V.Global.iGsflexgrid_WorkOrder_uRow,1,V.Local.iGsflexgrid_WorkOrder_Key)
+
+F.Intrinsic.Control.If(V.Global.bUseLotBin,=,False)
+	F.Intrinsic.Control.If(V.Global.iGsflexgrid_WorkOrder_click,=,1)
+		V.Local.fOnHand.Set(V.Screen.Form_IssueMat!txt_OnHand.Text)
+		F.Intrinsic.Control.If(V.Local.fOnHand,=,0)
+			F.Intrinsic.UI.Msgbox("There is no more on hand quantity for this part","NOTIFICATION")
+			V.Global.iGsflexgrid_WorkOrder_click.Set(0)
+			V.Global.iGsflexgrid_WorkOrder_uRow.Set(0)
+			Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(6,V.Local.iGsflexgrid_WorkOrder_Key,False)
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.Else
+			V.uGlobal.uSelected.RedimPreserve(0,V.Global.iSelectedRows)
+			V.uGlobal.uSelected(V.Global.iSelectedRows)!WO.Set(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!WO)
+			V.uGlobal.uSelected(V.Global.iSelectedRows)!SUFFIX.Set(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!SUFFIX)
+			V.uGlobal.uSelected(V.Global.iSelectedRows)!SEQ.Set(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!SEQ)
+
+			Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fWO_Qty)
+			F.Intrinsic.Control.If(V.Local.fWO_Qty,>=,V.Local.fOnHand)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!QUANTITY.Set(V.Local.fOnHand)
+				F.Intrinsic.Control.If(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY,>,V.Local.fOnHand)
+					V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.Local.fOnHand)
+					F.Intrinsic.Math.Sub(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY,V.Local.fOnHand,V.Local.fRemaining)
+					V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(V.Local.fRemaining)
+					Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fRemaining)
+				F.Intrinsic.Control.Else
+					V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+					V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(0)
+					Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,0)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!QUANTITY.Set(V.Local.fWO_Qty)
+				F.Intrinsic.Control.If(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY,>=,V.Local.fWO_Qty)
+					V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.Local.fWO_Qty)
+					F.Intrinsic.Math.Sub(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY,V.Local.fWO_Qty,V.Local.fRemaining)
+					V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(V.Local.fRemaining)
+					Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fRemaining)
+				F.Intrinsic.Control.Else
+					V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+					V.uGlobal.uWO(V.Global.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(0)
+					Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,0)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		
+			'WO and Lot/Bin flexgrid information for referencing to the previous selections
+			V.uGlobal.uSelected(V.Global.iSelectedRows)!WO_ROW.Set(V.Global.iGsflexgrid_WorkOrder_uRow)
+
+			'Update issue and on hand quantity textboxes
+			F.Intrinsic.Math.Add(V.Global.fIssueQty,V.uGlobal.uSelected(V.Global.iSelectedRows)!QUANTITY,V.Global.fIssueQty)
+			F.Intrinsic.Math.Sub(V.Local.fOnHand,V.uGlobal.uSelected(V.Global.iSelectedRows)!QUANTITY,V.Local.fOnHand)
+			F.Intrinsic.String.Format(V.Local.fOnHand,"#,0.0000",V.Local.sOnHand)
+			F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+			Gui.Form_IssueMat.txt_OnHand.Text(V.Local.sOnHand)
+			Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+
+			Gui.Form_IssueMat.gsflexgrid_Selected.LoadFromUDT("V.uGlobal.uSelected","WO::0*!*SUFFIX::1*!*SEQ::2*!*LOT::3*!*BIN::4*!*HEAT::5*!*SERIAL::6*!*QUANTITY::7",2)
+
+			'Reset the checkboxes in fg_WorkOrder
+			Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(6,V.Local.iGsflexgrid_WorkOrder_Key,False)
+			V.Global.iGsflexgrid_WorkOrder_click.Set(0)
+			V.Global.iGsflexgrid_WorkOrder_uRow.Set(0)
+			F.Intrinsic.Math.Add(V.Global.iSelectedRows,1,V.Global.iSelectedRows)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Program.Sub.load_gsflexgrid_Selected.End
+
+program.sub.gsflexgrid_selected_commandclick.start
+V.Local.iURow.Declare(Long)
+V.Local.sRow.Declare(String)
+F.Intrinsic.Math.Sub(V.Args.Key,1,V.Local.iURow)
+F.Intrinsic.String.ConvertToString(V.Local.iURow,V.Local.sRow)
+
+V.Local.fOrigWO_Qty.Declare(Float)
+V.Local.fEstimate.Declare(Float)
+V.Local.fActual.Declare(Float)
+V.Local.fEstimate.Set(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iURow)!WO_ROW)!ESTIMATE)
+V.Local.fActual.Set(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iURow)!WO_ROW)!ACTUAL)
+F.Intrinsic.Math.Sub(V.Local.fEstimate,V.Local.fActual,V.Local.fOrigWO_Qty)
+
+V.Local.fWO_Qty.Declare(Float)
+V.Local.fWO_Qty.Set(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iURow)!WO_ROW)!QUANTITY)
+V.Local.fSelectedWOQty1.Declare(Float)
+V.Local.fSelectedWOQty1.Set(V.uGlobal.uSelected(V.Local.iURow)!QUANTITY)
+V.Local.fSelectedWOQty2.Declare(Float)
+V.Local.fSelectedWOQty2.Set(V.uGlobal.uSelected(V.Local.iURow)!QTY_ORI)
+V.Local.iGsflexgrid_WorkOrder_Key.Declare(Long)
+F.Intrinsic.Math.Add(V.uGlobal.uSelected(V.Local.iURow)!WO_ROW,1,V.Local.iGsflexgrid_WorkOrder_Key)
+
+V.Local.fOnHand.Declare(Float)
+V.Local.sOnHand.Declare(String)
+V.Local.sIssueQty.Declare(String)
+
+F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+	
+	V.Local.fLot_Qty.Declare(Float)
+	V.Local.fLot_Qty.Set(V.uGlobal.uLotBin(V.uGlobal.uSelected(V.Local.iURow)!LOT_ROW)!QUANTITY)
+	V.Local.iGsflexgrid_LotBin_Key.Declare(Long)
+	F.Intrinsic.Math.Add(V.uGlobal.uSelected(V.Local.iURow)!LOT_ROW,1,V.Local.iGsflexgrid_LotBin_Key)
+	F.Intrinsic.Math.Add(V.Local.fWO_Qty,V.Local.fSelectedWOQty2,V.Local.fWO_Qty)
+	V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iURow)!WO_ROW)!QUANTITY.Set(V.Local.fWO_Qty)
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fWO_Qty)
+	F.Intrinsic.Math.Add(V.Local.fLot_Qty,V.Local.fSelectedWOQty1,V.Local.fLot_Qty)
+	V.uGlobal.uLotBin(V.uGlobal.uSelected(V.Local.iURow)!LOT_ROW)!QUANTITY.Set(V.Local.fLot_Qty)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.TextMatrix(4,V.Local.iGsflexgrid_LotBin_Key,V.Local.fLot_Qty)
+
+F.Intrinsic.Control.Else
+
+	F.Intrinsic.Control.If(V.Local.fSelectedWOQty1,>,V.Local.fOrigWO_Qty)
+		V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iURow)!WO_ROW)!QUANTITY.Set(V.Local.fOrigWO_Qty)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fOrigWO_Qty)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Local.fSelectedWOQty1,=,V.uGlobal.uSelected(V.Local.iURow)!QTY_ORI)
+			F.Intrinsic.Math.Add(V.Local.fWO_Qty,V.Local.fSelectedWOQty1,V.Local.fWO_Qty)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Math.Add(V.Local.fWO_Qty,V.uGlobal.uSelected(V.Local.iURow)!QTY_ORI,V.Local.fWO_Qty)
+		F.Intrinsic.Control.EndIf
+		V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iURow)!WO_ROW)!QUANTITY.Set(V.Local.fWO_Qty)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fWO_Qty)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+
+'Update issue and on hand quantity textboxes
+F.Intrinsic.Math.Sub(V.Global.fIssueQty,V.Local.fSelectedWOQty1,V.Global.fIssueQty)
+V.Local.fOnHand.Set(V.Screen.Form_IssueMat!txt_OnHand.Text)
+F.Intrinsic.Math.Add(V.Local.fOnHand,V.Local.fSelectedWOQty1,V.Local.fOnHand)
+F.Intrinsic.String.Format(V.Local.fOnHand,"#,0.0000",V.Local.sOnHand)
+F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+Gui.Form_IssueMat.txt_OnHand.Text(V.Local.sOnHand)
+Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+
+'Remove the row from fg_Selected
+F.Intrinsic.Variable.UDTFlagOrdinal(V.uGlobal.uSelected,True,V.Local.sRow)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uSelected)
+F.Intrinsic.Control.If(V.Global.iSelectedRows,>=,2)
+	F.Intrinsic.Math.Sub(V.Global.iSelectedRows,2,V.Global.iSelectedRows)
+	V.uGlobal.uSelected.RedimPreserve(0,V.Global.iSelectedRows)
+	F.Intrinsic.Math.Add(V.Global.iSelectedRows,1,V.Global.iSelectedRows)
+F.Intrinsic.Control.Else
+	V.Global.iSelectedRows.Set(0)
+	V.uGlobal.uSelected.Redim(0,V.Global.iSelectedRows)
+F.Intrinsic.Control.EndIf
+Gui.Form_IssueMat.gsflexgrid_Selected.LoadFromUDT("V.uGlobal.uSelected","WO::0*!*SUFFIX::1*!*SEQ::2*!*LOT::3*!*BIN::4*!*HEAT::5*!*SERIAL::6*!*QUANTITY::7",2)
+
+program.sub.gsflexgrid_selected_commandclick.End
+
+program.sub.cmd_issue_click.start
+V.Local.bCheckLot.Declare(Boolean)
+V.Local.bCheckWO.Declare(Boolean)
+V.Local.bFileExists.Declare(Boolean)
+
+V.Local.fIssueQty.Declare(Float)
+V.Local.fWO_Qty.Declare(Float)
+V.Local.fLot_Qty.Declare(Float)
+
+V.Local.i1.Declare(Long)
+V.Local.iSeq.Declare(Long)
+
+V.Local.sBIParam.Declare(String)
+V.Local.sBIParamVal.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.sDesc.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sFileName.Declare(String)
+V.Local.sIssueQty.Declare(String)
+V.Local.sLoc.Declare(String)
+V.Local.sLot_Row.Declare(String)
+V.Local.sParam.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.sWO_Row.Declare(String)
+
+V.Local.sPart.Set(V.Screen.Form_IssueMat!txt_PartNum.Text)
+V.Local.sRev.Set(V.Screen.Form_IssueMat!txt_Rev.Text)
+V.Local.sLoc.Set(V.Screen.Form_IssueMat!txt_Loc.Text)
+V.Local.sDesc.Set(V.Screen.Form_IssueMat!txt_PartDesc.Text)
+
+V.Local.bCheckWO.Set(False)
+V.Local.bCheckLot.Set(False)
+
+F.Intrinsic.String.Concat("I",V.Caller.CompanyCode,"IF",V.Caller.Terminal,V.Local.sParam)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Local.sParam,V.Local.sFileName)
+
+'TDjohan - 8 July 2021 - BEGIN
+F.Intrinsic.File.Exists(V.Local.sFileName,V.Local.bFileExists)
+F.Intrinsic.Control.If(V.Local.bFileExists)
+	F.Intrinsic.File.DeleteFile(V.Local.sFileName)
+	V.Local.bFileExists.Set(False)
+F.Intrinsic.Control.EndIf
+'TDjohan - 8 July 2021 - END
+
+F.ODBC.Connection!conx.Execute("DELETE FROM BI_SF_AUDIT")
+F.Intrinsic.String.Concat("SELECT * FROM BI_SF_AUDIT WHERE TRMNL = '",V.Caller.Terminal,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenLocalRecordsetRW("rst",V.Local.sQuery)
+V.Local.iSeq.Set(1)
+
+F.Intrinsic.Control.For(V.Local.i1,0,V.uGlobal.uSelected.UBound,1)
+
+	V.Local.fIssueQty.Set(V.uGlobal.uSelected(V.Local.i1)!QUANTITY)
+	'TDjohan - 8 July 2021 - BEGIN
+'	F.Intrinsic.String.Format(V.Local.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+	F.Intrinsic.String.Format(V.Local.fIssueQty,"0.0000",V.Local.sIssueQty)
+	'TDjohan - 8 July 2021 - END
+	F.Intrinsic.String.Concat(V.Local.sPart.Trim,",",V.Local.sRev.Trim,",",V.Local.sLoc.Trim,",",V.Local.sIssueQty,",",V.uGlobal.uSelected(V.Local.i1)!LOT.Trim,",",V.uGlobal.uSelected(V.Local.i1)!BIN.Trim,",",V.uGlobal.uSelected(V.Local.i1)!HEAT.Trim,V.Local.sFile)
+	F.Intrinsic.String.Concat(V.Local.sFile,",",V.uGlobal.uSelected(V.Local.i1)!SERIAL.Trim,",",V.uGlobal.uSelected(V.Local.i1)!WO.Trim,",",V.uGlobal.uSelected(V.Local.i1)!SUFFIX.Trim,",",V.uGlobal.uSelected(V.Local.i1)!SEQ.Trim,V.Local.sFile)
+'	'TDjohan - 8 July 2021 - BEGIN
+'	F.Intrinsic.Control.If(V.Local.i1,<,V.uGlobal.uSelected.UBound)
+'		F.Intrinsic.String.Concat(V.Local.sFile,V.Ambient.NewLine,V.Local.sFile)
+'	F.Intrinsic.Control.EndIf
+	'TDjohan - 8 July 2021 - END
+	F.Intrinsic.File.String2File(V.Local.sFileName,V.Local.sFile)
+	'TDjohan - 8 July 2021 - BEGIN
+'	F.Global.General.CallWrapperAsync(450100,V.Local.sParam)
+	F.Global.General.CallWrapperSync(450100,V.Local.sParam)
+	'TDjohan - 8 July 2021 - END
+	
+	'Adding the record to BI_SF_AUDIT for audit trail printout
+	F.ODBC.conx!rst.AddNew
+	F.ODBC.conx!rst.Set!TRMNL(V.Caller.Terminal)
+	F.ODBC.conx!rst.Set!RPTID("001862")
+	F.Intrinsic.String.LPad(V.Local.iSeq,"0",9,V.Local.sSeq)
+	F.ODBC.conx!rst.Set!SEQUENCE(V.Local.sSeq)
+	F.ODBC.conx!rst.Set!REC_TYPE("L")
+	F.ODBC.conx!rst.Set!TRANS("02")
+	F.ODBC.conx!rst.Set!JOB(V.uGlobal.uSelected(V.Local.i1)!WO.Trim)
+	F.ODBC.conx!rst.Set!SUFFIX(V.uGlobal.uSelected(V.Local.i1)!SUFFIX.Trim)
+	F.ODBC.conx!rst.Set!CATEGORY(V.uGlobal.uSelected(V.Local.i1)!SEQ.Trim)
+	F.ODBC.conx!rst.Set!DESCR(V.Local.sDesc.Trim)
+	F.ODBC.conx!rst.Set!REFERENCE(V.Local.sPart.Trim)
+	F.Intrinsic.String.DateString(V.Ambient.Date,V.Local.sDate)
+	F.ODBC.conx!rst.Set!TRAN_DATE(V.Local.sDate.Trim)
+	F.ODBC.conx!rst.Set!QTY_1(V.Local.fIssueQty)
+	F.ODBC.conx!rst.Set!HEADING("Audit Trail for Issue of Materials to Work Orders")
+	F.ODBC.conx!rst.Update
+	
+	'If lot/bin is used, add an extra for the selected lot/bin information
+	F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+		F.ODBC.conx!rst.AddNew
+		F.ODBC.conx!rst.Set!TRMNL(V.Caller.Terminal)
+		F.ODBC.conx!rst.Set!RPTID("001862")
+		F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+		F.Intrinsic.String.LPad(V.Local.iSeq,"0",9,V.Local.sSeq)
+		F.ODBC.conx!rst.Set!SEQUENCE(V.Local.sSeq)
+		F.ODBC.conx!rst.Set!REC_TYPE("L1")
+		F.ODBC.conx!rst.Set!QTY_2(V.Local.fIssueQty)
+		F.ODBC.conx!rst.Set!LOT(V.uGlobal.uSelected(V.Local.i1)!LOT.Trim)
+		F.ODBC.conx!rst.Set!BIN(V.uGlobal.uSelected(V.Local.i1)!BIN.Trim)
+		F.ODBC.conx!rst.Set!HEAT(V.uGlobal.uSelected(V.Local.i1)!HEAT.Trim)
+		F.ODBC.conx!rst.Set!SERIAL(V.uGlobal.uSelected(V.Local.i1)!SERIAL.Trim)
+		F.ODBC.conx!rst.Set!HEADING("Audit Trail for Issue of Materials to Work Orders")
+		F.ODBC.conx!rst.Update
+		
+		F.ODBC.conx!rst.AddNew
+		F.ODBC.conx!rst.Set!TRMNL(V.Caller.Terminal)
+		F.ODBC.conx!rst.Set!RPTID("001862")
+		F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+		F.Intrinsic.String.LPad(V.Local.iSeq,"0",9,V.Local.sSeq)
+		F.ODBC.conx!rst.Set!SEQUENCE(V.Local.sSeq)
+		F.ODBC.conx!rst.Set!REC_TYPE("L1")
+		F.ODBC.conx!rst.Set!HEADING("Audit Trail for Issue of Materials to Work Orders")
+		F.ODBC.conx!rst.Update
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+
+	V.Local.fWO_Qty.Set(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.i1)!WO_ROW)!QUANTITY)
+	F.Intrinsic.String.ConvertToString(V.uGlobal.uSelected(V.Local.i1)!WO_ROW,V.Local.sWO_Row)
+	F.Intrinsic.Control.If(V.Local.fWO_Qty,=,0)
+		'Flag the row with zero remaining quantity to be removed from fg_WorkOrder
+		F.Intrinsic.Variable.UDTFlagOrdinal(V.uGlobal.uWO,True,V.Local.sWO_Row)
+		V.Local.bCheckWO.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+		V.Local.fLot_Qty.Set(V.uGlobal.uLotBin(V.uGlobal.uSelected(V.Local.i1)!LOT_ROW)!QUANTITY)
+		F.Intrinsic.String.ConvertToString(V.uGlobal.uSelected(V.Local.i1)!LOT_ROW,V.Local.sLot_Row)
+		F.Intrinsic.Control.If(V.Local.fLot_Qty,=,0)
+			'Flag the row with zero remaining quantity to be removed from fg_LotBin
+			F.Intrinsic.Variable.UDTFlagOrdinal(V.uGlobal.uLotBin,True,V.Local.sLot_Row)
+			V.Local.bCheckLot.Set(True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.i1)
+
+F.ODBC.conx!rst.Close
+
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uWO)
+F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uLotBin)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.UDTFlagAll(V.uGlobal.uSelected)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uSelected)
+Gui.Form_IssueMat.gsflexgrid_Selected.LoadFromUDT("V.uGlobal.uSelected","WO::0*!*SUFFIX::1*!*SEQ::2*!*LOT::3*!*BIN::4*!*HEAT::5*!*SERIAL::6*!*QUANTITY::7",2)
+F.Intrinsic.Control.If(V.Local.bCheckWO,=,True)
+	Gui.Form_IssueMat.gsflexgrid_WorkOrder.LoadFromUDT("V.uGlobal.uWO","WO::0*!*SUFFIX::1*!*DESCRIPTION::2*!*SEQ::3*!*DUE::4*!*QUANTITY::5",2)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Local.bCheckLot,=,True)
+	Gui.Form_IssueMat.gsflexgrid_LotBin.LoadFromUDT("V.uGlobal.uLotBin","LOT::0*!*BIN::1*!*HEAT::2*!*SERIAL::3*!*QUANTITY::4",2)
+F.Intrinsic.Control.EndIf
+V.uGlobal.uSelected.Redim(0,0)
+V.Global.iSelectedRows.Set(0)
+V.Global.fIssueQty.Set(0)
+F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+Gui.Form_IssueMat.txt_Issued.Locked(1)
+
+F.Intrinsic.String.Split("Terminal*!*Rptid*!*Program*!*HIDECOST","*!*",V.Local.sBIParam)
+F.Intrinsic.String.Concat(V.Caller.Terminal,"*!*001862*!*INA_ISSUE_MATERIAL.GAS*!*Y",V.Local.sBIParamVal)
+F.Intrinsic.String.Split(V.Local.sBIParamVal,"*!*",V.Local.sBIParamVal)
+F.Global.BI.PrintReport("001862",16,V.Local.sBIParam,V.Local.sBIParamVal,"GSView",False)
+
+
+program.sub.cmd_issue_click.End
+
+program.sub.txt_issued_keypressenter.start
+V.Local.fQty_Enter.Declare(Float)
+V.Local.fQty_Enter.Set(V.Screen.Form_IssueMat!txt_Issued.Text)
+
+V.Local.sIssueQty.Declare(String)
+V.Local.sOnHand.Declare(String)
+V.Local.i1.Declare(Long)
+
+V.Local.fOnHand.Declare(Float)
+V.Local.fExtraQty.Declare(Float)
+V.Local.fCurrQty.Declare(Float)
+V.Local.fQtyFraction.Declare(Float)
+V.Local.fAddlQty.Declare(Float)
+V.Local.fWOQty.Declare(Float)
+V.Local.fDiff.Declare(Float)
+
+V.Local.fIssueQty.Declare(Float)
+V.Local.fRemaining.Declare(Float)
+
+V.Local.iKey.Declare(Long)
+V.Local.iGsflexgrid_WorkOrder_Key.Declare(Long)
+
+F.Intrinsic.Control.If(V.Local.fQty_Enter,<,0)
+	F.Intrinsic.UI.Msgbox("Quantity entered cannot be negative","NOTIFICATION")
+	F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+	Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+F.Intrinsic.Control.ElseIf(V.Local.fQty_Enter,=,0)
+	F.Intrinsic.UI.Msgbox("Quantity entered cannot be zero","NOTIFICATION")
+	F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+	Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Math.Sub(V.Local.fQty_Enter,V.Global.fIssueQty,V.Local.fExtraQty)
+	V.Local.fOnHand.Set(V.Screen.Form_IssueMat!txt_OnHand.Text)
+	F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+		F.Intrinsic.UI.Msgbox("Quantity changes will only affect lot/bin that has sufficient extra quantities","NOTIFICATION")
+		
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Local.fExtraQty,>,V.Local.fOnHand)
+			F.Intrinsic.UI.Msgbox("Quantity entered cannot be less than available on hand quantity","NOTIFICATION")
+			F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+			Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+		F.Intrinsic.Control.Else
+			V.Local.fIssueQty.Set(0)
+			V.Local.fMinQty.Declare(Float)
+			V.Local.iMin.Declare(Long)
+			V.Local.iMin.Set(0)
+			V.Local.fNewAdjustQty.Declare(Float)
+			'Compute the additional issued quantity on each work order
+			F.Intrinsic.Control.For(V.Local.i1,0,V.uGlobal.uSelected.UBound,1)
+				V.Local.iGsflexgrid_Selected_Key.Declare(Long)
+				F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.iGsflexgrid_Selected_Key)
+				Gui.Form_IssueMat.gsflexgrid_Selected.GetTextMatrix(7,V.Local.iGsflexgrid_Selected_Key,V.Local.fCurrQty)
+				F.Intrinsic.Math.Div(V.Local.fCurrQty,V.Global.fIssueQty,V.Local.fQtyFraction)
+				F.Intrinsic.Math.Mult(V.Local.fQtyFraction,V.Local.fExtraQty,V.Local.fAddlQty)
+				F.Intrinsic.Math.Add(V.Local.fCurrQty,V.Local.fAddlQty,V.Local.fCurrQty)
+				F.Intrinsic.Math.Round(V.Local.fCurrQty,4,V.Local.fCurrQty)
+								
+				F.Intrinsic.Math.Add(V.uGlobal.uSelected(V.Local.i1)!WO_ROW,1,V.Local.iGsflexgrid_WorkOrder_Key)
+				F.Intrinsic.Control.If(V.Local.fCurrQty,>=,V.uGlobal.uSelected(V.Local.i1)!QTY_ORI)
+					F.Intrinsic.Math.Sub(V.Local.fCurrQty,V.uGlobal.uSelected(V.Local.i1)!QTY_ORI,V.Local.fDiff)
+					F.Intrinsic.Control.If(V.Local.fDiff,>=,V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.i1)!WO_ROW)!QUANTITY)
+						V.Local.fWOQty.Set(0)
+						F.Intrinsic.Math.Add(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.i1)!WO_ROW)!QUANTITY,V.uGlobal.uSelected(V.Local.i1)!QTY_ORI,V.Local.fNewAdjustQty)
+						V.uGlobal.uSelected(V.Local.i1)!QTY_ORI.Set(V.Local.fNewAdjustQty)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.Math.Sub(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.i1)!WO_ROW)!QUANTITY,V.Local.fDiff,V.Local.fWOQty)
+						F.Intrinsic.Math.Add(V.uGlobal.uSelected(V.Local.i1)!QTY_ORI,V.Local.fDiff,V.Local.fNewAdjustQty)
+						V.uGlobal.uSelected(V.Local.i1)!QTY_ORI.Set(V.Local.fNewAdjustQty)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.If(V.uGlobal.uSelected(V.Local.i1)!QTY_ORI,>,0)
+						F.Intrinsic.Math.Sub(V.uGlobal.uSelected(V.Local.i1)!QTY_ORI,V.Local.fCurrQty,V.Local.fDiff)
+						F.Intrinsic.Math.Add(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.i1)!WO_ROW)!QUANTITY,V.Local.fDiff,V.Local.fWOQty)
+						V.uGlobal.uSelected(V.Local.i1)!QTY_ORI.Set(V.Local.fCurrQty)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+				V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.i1)!WO_ROW)!QUANTITY.Set(V.Local.fWOQty)
+				Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fWOQty)
+
+				V.uGlobal.uSelected(V.Local.i1)!QUANTITY.Set(V.Local.fCurrQty)
+				F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.iKey)
+				Gui.Form_IssueMat.gsflexgrid_Selected.TextMatrix(7,V.Local.iKey,V.Local.fCurrQty)
+
+				F.Intrinsic.Math.Add(V.Local.fIssueQty,V.Local.fCurrQty,V.Local.fIssueQty)
+				'Find the minimum issued quantity
+				F.Intrinsic.Control.If(V.Local.i1,=,0)
+					V.Local.fMinQty.Set(V.uGlobal.uSelected(V.Local.i1)!QTY_ORI)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.If(V.uGlobal.uSelected(V.Local.i1)!QTY_ORI,<,V.Local.fMinQty)
+						V.Local.fMinQty.Set(V.uGlobal.uSelected(V.Local.i1)!QTY_ORI)
+						V.Local.iMin.Set(V.Local.i1)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.Next(V.Local.i1)
+			
+			'If there is round off error between entered and calculated issued quantity, adjust the highest issued quantity
+			F.Intrinsic.Math.Sub(V.Local.fIssueQty,V.Local.fQty_Enter,V.Local.fRemaining)
+			F.Intrinsic.Control.If(V.Local.fRemaining,<>,0)
+				F.Intrinsic.Math.Sub(V.uGlobal.uSelected(V.Local.iMin)!QUANTITY,V.Local.fRemaining,V.Local.fCurrQty)
+				V.uGlobal.uSelected(V.Local.iMin)!QUANTITY.Set(V.Local.fCurrQty)
+				F.Intrinsic.Control.If(V.Local.fCurrQty,<,V.uGlobal.uSelected(V.Local.iMin)!QTY_ORI)
+					F.Intrinsic.Math.Add(V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iMin)!WO_ROW)!QUANTITY,V.Local.fRemaining,V.Local.fWOQty)
+					V.uGlobal.uWO(V.uGlobal.uSelected(V.Local.iMin)!WO_ROW)!QUANTITY.Set(V.Local.fWOQty)
+					F.Intrinsic.Math.Add(V.uGlobal.uSelected(V.Local.iMin)!WO_ROW,1,V.Local.iGsflexgrid_WorkOrder_Key)
+					Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iGsflexgrid_WorkOrder_Key,V.Local.fWOQty)
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Math.Add(V.Local.iMin,1,V.Local.iKey)
+				Gui.Form_IssueMat.gsflexgrid_Selected.TextMatrix(7,V.Local.iKey,V.Local.fCurrQty)
+				
+			F.Intrinsic.Control.EndIf
+			V.Global.fIssueQty.Set(V.Local.fQty_Enter)
+			F.Intrinsic.Math.Sub(V.Local.fOnHand,V.Local.fExtraQty,V.Local.fOnHand)
+			F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+			Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+			F.Intrinsic.String.Format(V.Local.fOnHand,"#,0.0000",V.Local.sOnHand)
+			Gui.Form_IssueMat.txt_OnHand.Text(V.Local.sOnHand)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.EndIf
+
+program.sub.txt_issued_keypressenter.End
+
+program.sub.form_issuemat_unload.start
+F.ODBC.Connection!conx.Execute("DELETE FROM BI_SF_AUDIT")
+F.ODBC.Connection!conx.CloseRecordsets
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+program.sub.form_issuemat_unload.End
+
+program.sub.gsflexgrid_workorder_posttextmatrix.start
+V.Local.bCheck.Declare(Boolean)
+Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(6,V.Args.Key,V.Local.bCheck)
+F.Intrinsic.Control.If(V.Local.bCheck,=,True)
+	V.Local.fDiff.Declare(Float)
+	V.Local.sTotalWO.Declare(String)
+	V.Local.fTotalWO.Declare(Float)
+	V.Local.fTotalWO.Set(0)
+	V.Local.fWO_Qty.Declare(Float)
+	V.Local.iCount.Declare(Long)
+	V.Local.iCount.Set(1)
+	V.Local.iGsflexgrid_Key.Declare(Long)
+	V.Local.iGsflexgrid_Key.Set(1)
+	V.Local.bCheckLoop.Declare(Boolean)
+	F.Intrinsic.Control.DoUntil(V.Local.iCount,>,V.Global.iGsflexgrid_WorkOrder_click)
+		Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(6,V.Local.iGsflexgrid_Key,V.Local.bCheckLoop)
+		F.Intrinsic.Control.If(V.Local.bCheckLoop,=,True)
+			Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(5,V.Local.iGsflexgrid_Key,V.Local.fWO_Qty)
+			F.Intrinsic.Math.Add(V.Local.fTotalWO,V.Local.fWO_Qty,V.Local.fTotalWO)
+			F.Intrinsic.Math.Add(V.Local.iCount,1,V.Local.iCount)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Add(V.Local.iGsflexgrid_Key,1,V.Local.iGsflexgrid_Key)
+	F.Intrinsic.Control.Loop
+	V.Global.fTotalWO.Set(V.Local.fTotalWO)
+	F.Intrinsic.String.Format(V.Global.fTotalWO,"#,0.0000",V.Local.sTotalWO)
+	Gui.Form_IssueMat.txt_TotalWO.Text(V.Local.sTotalWO)
+F.Intrinsic.Control.EndIf
+
+program.sub.gsflexgrid_workorder_posttextmatrix.End
+
+program.sub.cmd_lotbinselect_click.start
+F.Intrinsic.Control.If(V.Global.bUseLotBin,=,True)
+F.Intrinsic.Control.AndIf(V.Global.fTotalWO,>,0)
+F.Intrinsic.Control.AndIf(V.Global.fTotalLotBin,>,0)
+	F.Intrinsic.Control.If(V.Global.fTotalWO,>,V.Global.fTotalLotBin)
+		V.Local.sMessage.Declare(String)
+		F.Intrinsic.String.Concat("Total WO Quantity (",V.Global.fTotalWO,") > Total Lot/Bin Quantity (",V.Global.fTotalLotBin,")",V.Local.sMessage)
+		F.Intrinsic.UI.Msgbox(V.Local.sMessage,"NOTIFICATION")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		V.Local.iCount.Declare(Long)
+		V.Local.iCount.Set(1)
+		V.Local.iWORows.Declare(Long)
+		V.Local.iWORows.Redim(1,V.Global.iGsflexgrid_WorkOrder_click)
+		V.Local.iGsflexgrid_Key.Declare(Long)
+		V.Local.iGsflexgrid_Key.Set(1)
+		V.Local.bCheck.Declare(Boolean)
+		F.Intrinsic.Control.DoUntil(V.Local.iCount,>,V.Global.iGsflexgrid_WorkOrder_click)
+			Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(6,V.Local.iGsflexgrid_Key,V.Local.bCheck)
+			F.Intrinsic.Control.If(V.Local.bCheck,=,True)
+				V.Local.iWORows(V.Local.iCount).Set(V.Local.iGsflexgrid_Key)
+				F.Intrinsic.Math.Add(V.Local.iCount,1,V.Local.iCount)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Add(V.Local.iGsflexgrid_Key,1,V.Local.iGsflexgrid_Key)
+		F.Intrinsic.Control.Loop
+		V.Local.iLotBinRows.Declare(Long)
+		V.Local.iLotBinRows.Redim(1,V.Global.iGsflexgrid_LotBin_click)
+		V.Local.iCount.Set(1)
+		V.Local.iGsflexgrid_Key.Set(1)
+		F.Intrinsic.Control.DoUntil(V.Local.iCount,>,V.Global.iGsflexgrid_LotBin_click)
+			Gui.Form_IssueMat.gsflexgrid_LotBin.GetTextMatrix(5,V.Local.iGsflexgrid_Key,V.Local.bCheck)
+			F.Intrinsic.Control.If(V.Local.bCheck,=,True)
+				V.Local.iLotBinRows(V.Local.iCount).Set(V.Local.iGsflexgrid_Key)
+				F.Intrinsic.Math.Add(V.Local.iCount,1,V.Local.iCount)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Add(V.Local.iGsflexgrid_Key,1,V.Local.iGsflexgrid_Key)
+		F.Intrinsic.Control.Loop
+		V.Local.fTotalWO.Declare(Float)
+		V.Local.fTotalWO.Set(V.Global.fTotalWO)
+		V.Local.iGsflexgrid_WorkOrder_uRow.Declare(Long)
+		V.Local.iGsflexgrid_LotBin_uRow.Declare(Long)
+		V.Local.i1.Declare(Long)
+		V.Local.i1.Set(1)
+		V.Local.i2.Declare(Long)
+		V.Local.i2.Set(1)
+		V.Local.fWO_Qty.Declare(Float)
+		V.Local.fLot_Qty.Declare(Float)
+		V.Local.fRemaining.Declare(Float)
+		V.Local.fNewLotQty.Declare(Float)
+		F.Intrinsic.Control.Do
+			F.Intrinsic.Control.If(V.Local.fTotalWO,=,0)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.Else
+				V.uGlobal.uSelected.RedimPreserve(0,V.Global.iSelectedRows)
+				F.Intrinsic.Math.Sub(V.Local.iWORows(V.Local.i1),1,V.Local.iGsflexgrid_WorkOrder_uRow)
+				F.Intrinsic.Math.Sub(V.Local.iLotBinRows(V.Local.i2),1,V.Local.iGsflexgrid_LotBin_uRow)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!WO.Set(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!WO)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!SUFFIX.Set(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!SUFFIX)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!SEQ.Set(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!SEQ)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!BIN.Set(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!BIN)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!LOT.Set(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!LOT)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!HEAT.Set(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!HEAT)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!SERIAL.Set(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!SERIAL)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!WO_ROW.Set(V.Local.iGsflexgrid_WorkOrder_uRow)
+				V.uGlobal.uSelected(V.Global.iSelectedRows)!LOT_ROW.Set(V.Local.iGsflexgrid_LotBin_uRow)
+				Gui.Form_IssueMat.gsflexgrid_WorkOrder.GetTextMatrix(5,V.Local.iWORows(V.Local.i1),V.Local.fWO_Qty)
+				F.Intrinsic.Control.If(V.Local.fWO_Qty,<,V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY)
+					F.Intrinsic.Math.Sub(V.Local.fTotalWO,V.Local.fWO_Qty,V.Local.fTotalWO)
+					V.uGlobal.uSelected(V.Global.iSelectedRows)!QUANTITY.Set(V.Local.fWO_Qty)
+					F.Intrinsic.Math.Sub(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY,V.Local.fWO_Qty,V.Local.fNewLotQty)
+					F.Intrinsic.Control.If(V.Local.fWO_Qty,>=,V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+						V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+						V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(0)
+						Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iWORows(V.Local.i1),0)
+					F.Intrinsic.Control.Else
+						V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.Local.fWO_Qty)
+						F.Intrinsic.Math.Sub(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY,V.Local.fWO_Qty,V.Local.fRemaining)
+						V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(V.Local.fRemaining)
+						Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iWORows(V.Local.i1),V.Local.fRemaining)
+					F.Intrinsic.Control.EndIf
+					V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY.Set(V.Local.fNewLotQty)
+					Gui.Form_IssueMat.gsflexgrid_LotBin.TextMatrix(4,V.Local.iLotBinRows(V.Local.i2),V.Local.fNewLotQty)
+					F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.i1)
+				F.Intrinsic.Control.ElseIf(V.Local.fWO_Qty,>,V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY)
+					Gui.Form_IssueMat.gsflexgrid_LotBin.GetTextMatrix(4,V.Local.iLotBinRows(V.Local.i2),V.Local.fLot_Qty)
+					F.Intrinsic.Math.Sub(V.Local.fTotalWO,V.Local.fLot_Qty,V.Local.fTotalWO)
+					V.uGlobal.uSelected(V.Global.iSelectedRows)!QUANTITY.Set(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY)
+					F.Intrinsic.Math.Sub(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY,V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY,V.Local.fRemaining)
+					F.Intrinsic.Control.If(V.Local.fWO_Qty,<=,V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+						V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY)
+						V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(V.Local.fRemaining)
+						F.Intrinsic.Math.Sub(V.Local.fWO_Qty,V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY,V.Local.fRemaining)
+						Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iWORows(V.Local.i1),V.Local.fRemaining)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.Control.If(V.Local.fRemaining,>=,0)
+							V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY)
+							V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(V.Local.fRemaining)
+							F.Intrinsic.Math.Sub(V.Local.fWO_Qty,V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY,V.Local.fRemaining)
+							Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iWORows(V.Local.i1),V.Local.fRemaining)
+						F.Intrinsic.Control.Else
+							V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+							V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(0)
+							Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iWORows(V.Local.i1),0)
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+					V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY.Set(0)
+					Gui.Form_IssueMat.gsflexgrid_LotBin.TextMatrix(4,V.Local.iLotBinRows(V.Local.i2),0)
+					F.Intrinsic.Math.Add(V.Local.i2,1,V.Local.i2)
+				F.Intrinsic.Control.ElseIf(V.Local.fWO_Qty,=,V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY)
+					F.Intrinsic.Math.Sub(V.Local.fTotalWO,V.Local.fWO_Qty,V.Local.fTotalWO)
+					V.uGlobal.uSelected(V.Global.iSelectedRows)!QUANTITY.Set(V.Local.fWO_Qty)
+					
+					F.Intrinsic.Control.If(V.Local.fWO_Qty,>=,V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+						V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY)
+						V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(0)
+						Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iWORows(V.Local.i1),0)
+					F.Intrinsic.Control.Else
+						V.uGlobal.uSelected(V.Global.iSelectedRows)!QTY_ORI.Set(V.Local.fWO_Qty)
+						F.Intrinsic.Math.Sub(V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY,V.Local.fWO_Qty,V.Local.fRemaining)
+						V.uGlobal.uWO(V.Local.iGsflexgrid_WorkOrder_uRow)!QUANTITY.Set(V.Local.fRemaining)
+						Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(5,V.Local.iWORows(V.Local.i1),V.Local.fRemaining)
+					F.Intrinsic.Control.EndIf
+					V.uGlobal.uLotBin(V.Local.iGsflexgrid_LotBin_uRow)!QUANTITY.Set(0)
+					Gui.Form_IssueMat.gsflexgrid_LotBin.TextMatrix(4,V.Local.iLotBinRows(V.Local.i2),0)
+					F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.i1)
+					F.Intrinsic.Math.Add(V.Local.i2,1,V.Local.i2)
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Math.Add(V.Global.iSelectedRows,1,V.Global.iSelectedRows)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+
+		Gui.Form_IssueMat.gsflexgrid_Selected.LoadFromUDT("V.uGlobal.uSelected","WO::0*!*SUFFIX::1*!*SEQ::2*!*LOT::3*!*BIN::4*!*HEAT::5*!*SERIAL::6*!*QUANTITY::7",2)
+
+		V.Local.fOnHand.Declare(Float)
+		V.Local.sOnHand.Declare(String)
+		V.Local.sIssueQty.Declare(String)
+		V.Local.fOnHand.Set(V.Screen.Form_IssueMat!txt_OnHand.Text)
+		'Update issue and on hand quantity textboxes
+		F.Intrinsic.Math.Add(V.Global.fIssueQty,V.Global.fTotalWO,V.Global.fIssueQty)
+		F.Intrinsic.Math.Sub(V.Local.fOnHand,V.Global.fTotalWO,V.Local.fOnHand)
+		F.Intrinsic.String.Format(V.Local.fOnHand,"#,0.0000",V.Local.sOnHand)
+		F.Intrinsic.String.Format(V.Global.fIssueQty,"#,0.0000",V.Local.sIssueQty)
+		Gui.Form_IssueMat.txt_OnHand.Text(V.Local.sOnHand)
+		Gui.Form_IssueMat.txt_Issued.Text(V.Local.sIssueQty)
+
+		V.Global.iGsflexgrid_LotBin_click.Set(0)
+		V.Global.iGsflexgrid_WorkOrder_click.Set(0)
+		V.Global.fTotalWO.Set(0)
+		V.Global.fTotalLotBin.Set(0)
+		V.Local.sTotalWO.Declare(String)
+		V.Local.sTotalLotBin.Declare(String)
+		F.Intrinsic.String.Format(V.Global.fTotalWO,"#,0.0000",V.Local.sTotalWO)
+		Gui.Form_IssueMat.txt_TotalWO.Text(V.Local.sTotalWO)
+		F.Intrinsic.String.Format(V.Global.fTotalLotBin,"#,0.0000",V.Local.sTotalLotBin)
+		Gui.Form_IssueMat.txt_TotalLotBin.Text(V.Local.sTotalLotBin)
+		F.Intrinsic.Control.For(V.Local.i1,1,V.Local.iWORows.UBound,1)
+			Gui.Form_IssueMat.gsflexgrid_WorkOrder.TextMatrix(6,V.Local.iWORows(V.Local.i1),False)
+		F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.For(V.Local.i1,1,V.Local.iLotBinRows.UBound,1)
+			Gui.Form_IssueMat.gsflexgrid_LotBin.TextMatrix(5,V.Local.iLotBinRows(V.Local.i1),False)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+program.sub.cmd_lotbinselect_click.End
+
+program.sub.txt_partnum_keypressenter.start
+V.Local.sLoc.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sPart.Set(V.Screen.Form_IssueMat!txt_PartNum.Text)
+V.Local.sRev.Set(V.Screen.Form_IssueMat!txt_Rev.Text)
+V.Local.sLoc.Set(V.Screen.Form_IssueMat!txt_Loc.Text)
+
+F.Intrinsic.Control.If(V.Local.sPart.Trim,<>,"")
+	F.Intrinsic.Control.If(V.Local.sRev.Trim,=,"")
+		F.Intrinsic.Control.CallSub(Load_gsflexgrid_workorder_lotbin,"sPart",V.Local.sPart.Trim,"sLoc",V.Local.sLoc.Trim)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.RPad(V.Local.sPart.Trim," ",17,V.Local.sPart)
+		F.Intrinsic.String.Concat(V.Local.sPart,V.Local.sRev,V.Local.sPart)
+		F.Intrinsic.Control.CallSub(Load_gsflexgrid_workorder_lotbin,"sPart",V.Local.sPart.Trim,"sLoc",V.Local.sLoc.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+program.sub.txt_partnum_keypressenter.End
+
+Program.Sub.Comments.Start
+${$0$}$INA_ISSUE_MATERIAL$}$MHERTANTO$}$7/8/2021 4:03:21 PM$}$False
+${$4$}$0$}$$}$0$}$-1$}$MHERTANTO$}$12:00:00 AM$}$Add the capability to print audit trail from issue material from Report ID 1862.
+Program.Sub.Comments.End
+
